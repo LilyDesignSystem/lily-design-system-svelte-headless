@@ -24,7 +24,7 @@ The value follows the canonical `YYYY-MM-DDThh:mm` format used by the platform. 
 ## When not to use it
 
 - When you need separate inputs with a "Now" button. Use `DateTimeNowInput` instead.
-- When you need a time-zone-aware value. Datetime-local values are naive.
+- When you need a time-zone-aware value. DateTime-local values are naive.
 - When you only need a date (use `DateInput`) or only a time (use `TimeInput`).
 
 ## How to use it
