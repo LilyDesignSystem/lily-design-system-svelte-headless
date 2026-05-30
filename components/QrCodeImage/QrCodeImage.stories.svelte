@@ -1,10 +1,10 @@
 <script module lang="ts">
   import { defineMeta } from '@storybook/addon-svelte-csf';
-  import QrCode from './QrCode.svelte';
+  import QrCodeImage from './QrCodeImage.svelte';
 
   const { Story } = defineMeta({
-    title: 'Headless/QrCode',
-    component: QrCode,
+    title: 'Headless/QrCodeImage',
+    component: QrCodeImage,
   });
 </script>
 

@@ -1,10 +1,10 @@
-# QrCode
+# QrCodeImage
 
-A headless container for a QR code (two-dimensional barcode). Renders a `<div role="img">` with an `aria-label` describing the encoded content; the consumer provides the actual visual rendering (SVG, canvas, or third-party library output) as children.
+A headless container for a QR code (two-dimensional barcode-image). Renders a `<div role="img">` with an `aria-label` describing the encoded content; the consumer provides the actual visual rendering (SVG, canvas, or third-party library output) as children.
 
 ## What it is
 
-- Component: `QrCode`
+- Component: `QrCodeImage`
 - HTML element: `<div>`
 - Role: `img`
 - Category: image container
@@ -34,12 +34,12 @@ A headless container for a QR code (two-dimensional barcode). Renders a `<div ro
 Import and provide the QR payload visualization as children. The `label` should describe *what happens on scan*, not "QR code".
 
 ```svelte
-import QrCode from './QrCode.svelte';
+import QrCodeImage from './QrCodeImage.svelte';
 ```
 
 ## Props
 
-- `class` (`className`): string, default `""`. CSS class appended to `qr-code`.
+- `class` (`className`): string, default `""`. CSS class appended to `qr-code-image`.
 - `label`: string, required. Accessible description of the encoded content via `aria-label`.
 - `children`: Snippet, required. Visual rendering of the code (SVG, canvas, `<img>`, etc.).
 - `...restProps`: spread onto the `<div>`.
@@ -50,63 +50,63 @@ import QrCode from './QrCode.svelte';
 
 ```svelte
 <script lang="ts">
-  import QrCode from './QrCode.svelte';
+  import QrCodeImage from './QrCodeImage.svelte';
 </script>
 
-<QrCode label="Scan to visit example.com">
+<QrCodeImage label="Scan to visit example.com">
   <svg viewBox="0 0 29 29" width="160" height="160" aria-hidden="true">
     <!-- QR code paths supplied by a library -->
   </svg>
-</QrCode>
+</QrCodeImage>
 ```
 
 ### With a canvas rendering
 
 ```svelte
 <script lang="ts">
-  import QrCode from './QrCode.svelte';
+  import QrCodeImage from './QrCodeImage.svelte';
 
   let qrCanvas = $state<HTMLCanvasElement | null>(null);
   // populate qrCanvas via your QR library of choice
 </script>
 
-<QrCode label="Scan to download the app">
+<QrCodeImage label="Scan to download the app">
   <canvas bind:this={qrCanvas}></canvas>
-</QrCode>
+</QrCodeImage>
 ```
 
 ### With an image source
 
 ```svelte
 <script lang="ts">
-  import QrCode from './QrCode.svelte';
+  import QrCodeImage from './QrCodeImage.svelte';
 </script>
 
-<QrCode label="Scan to open the menu">
+<QrCodeImage label="Scan to open the menu">
   <img src="/qr/menu.png" alt="" aria-hidden="true" />
-</QrCode>
+</QrCodeImage>
 ```
 
 ### WiFi join payload
 
 ```svelte
 <script lang="ts">
-  import QrCode from './QrCode.svelte';
+  import QrCodeImage from './QrCodeImage.svelte';
 </script>
 
-<QrCode label="Scan to join Wi-Fi network 'Guest'">
+<QrCodeImage label="Scan to join Wi-Fi network 'Guest'">
   <svg viewBox="0 0 29 29" aria-hidden="true">
     <!-- QR paths for WIFI:T:WPA;S:Guest;P:...;; -->
   </svg>
-</QrCode>
+</QrCodeImage>
 ```
 
 ### Localized label
 
 ```svelte
-<QrCode label="Escanear para visitar example.com">
+<QrCodeImage label="Escanear para visitar example.com">
   <svg viewBox="0 0 29 29" aria-hidden="true"></svg>
-</QrCode>
+</QrCodeImage>
 ```
 
 ## Accessibility
